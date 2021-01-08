@@ -450,7 +450,7 @@
     "ip-regex": "^2.1.0",
     "inflight": "^1.0.6",
     "interpret": "^1.4.0",
-    "is-absolute-url": "^2.1.0",
+    "is-absolute-url": "^3.0.3",
     "ipaddr.js": "^1.9.1",
     "is-accessor-descriptor": "^1.0.0",
     "is-binary-path": "^2.1.0",
