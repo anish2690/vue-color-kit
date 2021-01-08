@@ -685,7 +685,7 @@
     "pnp-webpack-plugin": "^1.6.4",
     "pkg-dir": "^4.2.0",
     "posix-character-classes": "^0.1.1",
-    "postcss": "^7.0.35",
+    "postcss": "^8.2.3",
     "postcss-colormin": "^4.0.3",
     "postcss-calc": "^7.0.5",
     "postcss-convert-values": "^4.0.1",
