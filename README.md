@@ -1,6 +1,6 @@
 # vue-color-kit
 
-## [LiveDemo](https://anish2690.github.io/vue-color-kit/)
+## [LiveDemo](https://vue-color-kit.anishgeorge2690.vercel.app/)
 
 ![preview-dark](https://raw.githubusercontent.com/anish2690/vue-color-kit/master/src/img/preview-dark.jpg)
 ![preview-light](https://raw.githubusercontent.com/anish2690/vue-color-kit/master/src/img/preview-light.jpg)
