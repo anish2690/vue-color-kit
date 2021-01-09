@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { useUtils } from './composible'
+import { createLinearGradient } from './composible'
 
 export default defineComponent({
   props: {
@@ -23,10 +23,6 @@ export default defineComponent({
       type: Number,
       default: 152,
     },
-  },
-  setup() {
-    const { createLinearGradient } = useUtils()
-    return { createLinearGradient }
   },
   data() {
     return {
@@ -54,7 +50,7 @@ export default defineComponent({
       ctx.fillStyle = this.color
       ctx.fillRect(0, 0, size, size)
 
-      this.createLinearGradient(
+      createLinearGradient(
         'l',
         ctx,
         size,
@@ -62,14 +58,7 @@ export default defineComponent({
         '#FFFFFF',
         'rgba(255,255,255,0)'
       )
-      this.createLinearGradient(
-        'p',
-        ctx,
-        size,
-        size,
-        'rgba(0,0,0,0)',
-        '#000000'
-      )
+      createLinearGradient('p', ctx, size, size, 'rgba(0,0,0,0)', '#000000')
     },
     renderSlide() {
       this.slideSaturationStyle = {

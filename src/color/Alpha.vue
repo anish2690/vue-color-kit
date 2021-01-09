@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { useUtils } from './composible'
+import { createAlphaSquare, createLinearGradient } from './composible'
 
 export default defineComponent({
   props: {
@@ -27,13 +27,6 @@ export default defineComponent({
       type: Number,
       default: 152,
     },
-  },
-  setup() {
-    const { createAlphaSquare, createLinearGradient } = useUtils()
-    return {
-      createAlphaSquare,
-      createLinearGradient,
-    }
   },
   data() {
     return {
@@ -59,7 +52,7 @@ export default defineComponent({
       const width = this.width
       const height = this.height
       const size = this.alphaSize
-      const canvasSquare = this.createAlphaSquare(size)
+      const canvasSquare = createAlphaSquare(size)
 
       const ctx = canvas.getContext('2d')
       canvas.width = width
@@ -68,7 +61,7 @@ export default defineComponent({
       ctx.fillStyle = ctx.createPattern(canvasSquare, 'repeat')
       ctx.fillRect(0, 0, width, height)
 
-      this.createLinearGradient(
+      createLinearGradient(
         'p',
         ctx,
         width,
