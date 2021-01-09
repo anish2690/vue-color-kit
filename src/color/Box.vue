@@ -37,30 +37,30 @@ export default defineComponent({
 })
 </script>
 
-<style>
+<style lang="scss">
 .color-type {
   display: flex;
   margin-top: 8px;
   font-size: 12px;
-}
-.color-type .name {
-  width: 60px;
-  height: 30px;
-  float: left;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #999;
-  background: #252930;
-}
-.color-type .value {
-  flex: 1;
-  height: 30px;
-  min-width: 100px;
-  padding: 0 12px;
-  border: 0;
-  color: #fff;
-  background: #2e333a;
-  box-sizing: border-box;
+  .name {
+    width: 60px;
+    height: 30px;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #999;
+    background: #252930;
+  }
+  .value {
+    flex: 1;
+    height: 30px;
+    min-width: 100px;
+    padding: 0 12px;
+    border: 0;
+    color: #fff;
+    background: #2e333a;
+    box-sizing: border-box;
+  }
 }
 </style>

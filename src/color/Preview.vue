@@ -3,7 +3,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { useUtils } from './composible'
+import { createAlphaSquare } from './composible'
 
 export default defineComponent({
   props: {
@@ -19,12 +19,6 @@ export default defineComponent({
       type: Number,
       default: 30,
     },
-  },
-  setup() {
-    const { createAlphaSquare } = useUtils()
-    return {
-      createAlphaSquare,
-    }
   },
   data() {
     return {
@@ -45,7 +39,7 @@ export default defineComponent({
       const width = this.width
       const height = this.height
       const size = this.alphaSize
-      const canvasSquare = this.createAlphaSquare(size)
+      const canvasSquare = createAlphaSquare(size)
 
       const ctx = canvas.getContext('2d')
       canvas.width = width

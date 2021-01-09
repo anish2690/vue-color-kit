@@ -6,7 +6,8 @@ import commonjs from '@rollup/plugin-commonjs'
 import pascalcase from 'pascalcase'
 import vue from 'rollup-plugin-vue' // Handle .vue SFC files
 import scss from 'rollup-plugin-scss'
-
+import CleanCSS from 'clean-css'
+import fs from 'fs'
 const pkg = require('./package.json')
 const name = pkg.name
 
@@ -48,7 +49,7 @@ const outputConfigs = {
     format: `iife`,
   },
   esm: {
-    file: pkg.browser || pkg.module.replace('-bundler.js', '-browser.js'),
+    file: pkg.browser,
     format: `es`,
   },
 }
@@ -111,7 +112,18 @@ function createConfig(format, output, plugins = []) {
 
   const external = ['vue']
 
-  const nodePlugins = [resolve(),commonjs(),vue(),scss()]
+  const nodePlugins = [
+    resolve(),
+    commonjs(),
+    vue(),
+    scss({
+      output: (css) => {
+        const newcss = new CleanCSS().minify(css)
+        fs.writeFile('dist/vue-color-kit.css', newcss.styles, () => {})
+        return newcss.styles
+      },
+    }),
+  ]
 
   return {
     input: `src/index.ts`,

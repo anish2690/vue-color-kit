@@ -55,7 +55,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { useUtils } from './composible'
+import { setColorValue, rgb2hex } from './composible'
 
 import Saturation from './Saturation.vue'
 import Hue from './Hue.vue'
@@ -75,10 +75,7 @@ export default defineComponent({
     Box,
     Colors,
   },
-  setup() {
-    const { setColorValue, rgb2hex } = useUtils()
-    return { setColorValue, rgb2hex }
-  },
+  emits: ['changeColor', 'openSucker'],
   props: {
     color: {
       type: String,
@@ -177,11 +174,11 @@ export default defineComponent({
       return `rgba(${this.rgbaStringShort})`
     },
     hexString(): string {
-      return this.rgb2hex(this.rgba, true)
+      return rgb2hex(this.rgba, true)
     },
   },
   created() {
-    Object.assign(this, this.setColorValue(this.color))
+    Object.assign(this, setColorValue(this.color))
     this.setText()
 
     this.$watch('rgba', () => {
@@ -194,12 +191,12 @@ export default defineComponent({
   },
   methods: {
     selectSaturation(color: any) {
-      const { r, g, b, h, s, v } = this.setColorValue(color)
+      const { r, g, b, h, s, v } = setColorValue(color)
       Object.assign(this, { r, g, b, h, s, v })
       this.setText()
     },
     selectHue(color: any) {
-      const { r, g, b, h, s, v } = this.setColorValue(color)
+      const { r, g, b, h, s, v } = setColorValue(color)
       Object.assign(this, { r, g, b, h, s, v })
       this.setText()
       this.$nextTick(() => {
@@ -216,7 +213,7 @@ export default defineComponent({
       this.setText()
     },
     inputHex(color: string) {
-      const { r, g, b, a, h, s, v } = this.setColorValue(color)
+      const { r, g, b, a, h, s, v } = setColorValue(color)
       Object.assign(this, { r, g, b, a, h, s, v })
       this.modelHex = color
       this.modelRgba = this.rgbaStringShort
@@ -230,7 +227,7 @@ export default defineComponent({
       })
     },
     inputRgba(color: string) {
-      const { r, g, b, a, h, s, v } = this.setColorValue(color)
+      const { r, g, b, a, h, s, v } = setColorValue(color)
       Object.assign(this, { r, g, b, a, h, s, v })
       this.modelHex = this.hexString
       this.modelRgba = color
@@ -253,7 +250,7 @@ export default defineComponent({
       this.$emit('openSucker', isOpen)
     },
     selectSucker(color: string) {
-      const { r, g, b, a, h, s, v } = this.setColorValue(color)
+      const { r, g, b, a, h, s, v } = setColorValue(color)
       Object.assign(this, { r, g, b, a, h, s, v })
       this.setText()
       this.$nextTick(() => {
@@ -269,7 +266,7 @@ export default defineComponent({
       })
     },
     selectColor(color: string) {
-      const { r, g, b, a, h, s, v } = this.setColorValue(color)
+      const { r, g, b, a, h, s, v } = setColorValue(color)
       Object.assign(this, { r, g, b, a, h, s, v })
       this.setText()
       this.$nextTick(() => {

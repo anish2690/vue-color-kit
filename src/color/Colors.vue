@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import { defineComponent, onUnmounted, ref } from 'vue'
-import { useUtils } from './composible'
+import { createAlphaSquare } from './composible'
 export default defineComponent({
   name: 'ColorPicker',
   props: {
@@ -45,14 +45,12 @@ export default defineComponent({
     },
   },
   setup(props, { emit }) {
-    const { createAlphaSquare } = useUtils()
     const color = ref()
     const colorsHistory = ref([])
     const imgAlphaBase64 = ref()
     if (props.colorsHistoryKey && localStorage) {
-      colorsHistory.value = JSON.parse(
-        localStorage.getItem(props.colorsHistoryKey) as string
-      )
+      colorsHistory.value =
+        JSON.parse(localStorage.getItem(props.colorsHistoryKey) as string) || []
     }
 
     imgAlphaBase64.value = createAlphaSquare(4).toDataURL()
@@ -76,7 +74,7 @@ export default defineComponent({
       }
       // @ts-ignore
       colors.unshift(color)
-      colorsHistory.value = colors
+      colorsHistory.value = colors || []
       if (localStorage && props.colorsHistoryKey)
         localStorage.setItem(props.colorsHistoryKey, JSON.stringify(colors))
     }
@@ -94,44 +92,43 @@ export default defineComponent({
   },
 })
 </script>
-
-<style>
+<style lang="scss">
 .colors {
   padding: 0;
   margin: 0;
-}
-.colors.history {
-  margin-top: 10px;
-  border-top: 1px solid #2e333a;
-}
-.colors .item {
-  position: relative;
-  width: 16px;
-  height: 16px;
-  margin: 10px 0 0 10px;
-  border-radius: 3px;
-  box-sizing: border-box;
-  vertical-align: top;
-  display: inline-block;
-  transition: all 0.1s;
-  cursor: pointer;
-}
-.colors .item:nth-child(8n + 1) {
-  margin-left: 0;
-}
-.colors .item:hover {
-  transform: scale(1.4);
-}
-.colors .item .alpha {
-  height: 100%;
-  border-radius: 4px;
-}
-.colors .item .color {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 3px;
+  &.history {
+    margin-top: 10px;
+    border-top: 1px solid #2e333a;
+  }
+  .item {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    margin: 10px 0 0 10px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    vertical-align: top;
+    display: inline-block;
+    transition: all 0.1s;
+    cursor: pointer;
+    &:nth-child(8n + 1) {
+      margin-left: 0;
+    }
+    &:hover {
+      transform: scale(1.4);
+    }
+    .alpha {
+      height: 100%;
+      border-radius: 4px;
+    }
+    .color {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 3px;
+    }
+  }
 }
 </style>
