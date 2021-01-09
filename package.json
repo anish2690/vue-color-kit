@@ -11,6 +11,7 @@
   "author": "Anish George <anishgeorge2690@gmail.com>",
   "scripts": {
     "dev": "vite serve",
+    "playground:build": "vite build",
     "start": "vite serve --mode production",
     "build": "rollup -c rollup.config.js",
     "build:dts": "api-extractor run --local --verbose",

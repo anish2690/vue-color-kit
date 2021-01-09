@@ -7,6 +7,9 @@ export default defineConfig({
   alias: {
     '/@/': path.resolve(__dirname, 'src'),
   },
+  build: {
+    outDir: '../demo_dist',
+  },
   plugins: [vue()],
   optimizeDeps: {},
 })
