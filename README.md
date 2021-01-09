@@ -30,6 +30,7 @@ $ yarn add vue-color-kit
 
 <script>
   import { ColorPicker } from 'vue-color-kit'
+  import 'vue-color-kit/dist/vue-color-kit.css'
 
   export default {
     components: {
