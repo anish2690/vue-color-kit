@@ -21,6 +21,7 @@ export default defineComponent({
       default: '',
     },
   },
+  emits: ['inputColor'],
   setup(props, { emit }) {
     const modelColor = computed({
       get() {

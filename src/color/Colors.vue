@@ -44,6 +44,7 @@ export default defineComponent({
       default: '',
     },
   },
+  emits: ['selectColor'],
   setup(props, { emit }) {
     const color = ref()
     const colorsHistory = ref([])
