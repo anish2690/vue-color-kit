@@ -1,6 +1,6 @@
 {
   "name": "vue-color-kit",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Vue color picker",
   "main": "dist/vue-color-kit.cjs.js",
   "unpkg": "dist/vue-color-kit.global.js",
