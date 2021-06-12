@@ -28,6 +28,7 @@ export default defineComponent({
       default: 152,
     },
   },
+  emits: ['selectAlpha'],
   data() {
     return {
       slideAlphaStyle: {},

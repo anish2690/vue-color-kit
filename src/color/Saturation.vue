@@ -24,6 +24,7 @@ export default defineComponent({
       default: 152,
     },
   },
+  emits: ['selectSaturation'],
   data() {
     return {
       slideSaturationStyle: {},

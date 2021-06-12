@@ -23,6 +23,7 @@ export default defineComponent({
       default: 152,
     },
   },
+  emits: ['selectHue'],
   data() {
     return {
       slideHueStyle: {},
