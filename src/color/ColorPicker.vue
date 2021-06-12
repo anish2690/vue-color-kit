@@ -50,6 +50,8 @@
       :colors-history-key="colorsHistoryKey"
       @selectColor="selectColor"
     />
+    <!-- custom options -->
+    <slot></slot>
   </div>
 </template>
 
