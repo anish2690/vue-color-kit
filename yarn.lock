@@ -859,9 +859,9 @@
     pretty-format "^26.0.0"
 
 "@types/jsdom@^16.2.5":
-  version "16.2.5"
-  resolved "https://registry.yarnpkg.com/@types/jsdom/-/jsdom-16.2.5.tgz#74ebad438741d249ecb416c5486dcde4217eb66c"
-  integrity sha512-k/ZaTXtReAjwWu0clU0KLS53dyqZnA8mm+jwKFeFrvufXgICp+VNbskETFxKKAguv0pkaEKTax5MaRmvalM+TA==
+  version "16.2.12"
+  resolved "https://registry.yarnpkg.com/@types/jsdom/-/jsdom-16.2.12.tgz#2d47f5c9f7e40b4d5d9b5f0534c736dc475f9569"
+  integrity sha512-rD68Q2XSKBYOl38Tb9jbPuqZeTtpw09dFeuKWi7yhlZVfY8rV4xnQmISNQQZfhkQJGpJWp2qCmmrWjhiqDFNvA==
   dependencies:
     "@types/node" "*"
     "@types/parse5" "*"
