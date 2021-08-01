@@ -20,6 +20,7 @@
         @selectHue="selectHue"
       />
       <Alpha
+        v-if="showAlpha"
         ref="alpha"
         :color="rgbString"
         :rgba="rgba"
@@ -42,8 +43,8 @@
         @selectSucker="selectSucker"
       />
     </div>
-    <Box name="HEX" :color="modelHex" @inputColor="inputHex" />
-    <Box name="RGBA" :color="modelRgba" @inputColor="inputRgba" />
+    <Box v-if="showHexInput" name="HEX" :color="modelHex" @inputColor="inputHex" />
+    <Box v-if="showRgbaInput" name="RGBA" :color="modelRgba" @inputColor="inputRgba" />
     <Colors
       :color="rgbaString"
       :colors-default="colorsDefault"
@@ -87,6 +88,18 @@ export default defineComponent({
       type: String,
       default: 'dark',
     },
+    showAlpha: {
+      type: Boolean,
+      default: true
+    },
+    showHexInput: {
+      type: Boolean,
+      default: true
+    },
+    showRgbaInput: {
+      type: Boolean,
+      default: true
+    },
     suckerHide: {
       type: Boolean,
       default: true,
@@ -128,7 +141,6 @@ export default defineComponent({
   data() {
     return {
       hueWidth: 15,
-      hueHeight: 152,
       previewHeight: 30,
       modelRgba: '',
       modelHex: '',
@@ -142,11 +154,14 @@ export default defineComponent({
     }
   },
   computed: {
+    hueHeight(): number {
+      return 152 + (!this.showAlpha ? 23 : 0)
+    },
     isLightTheme(): boolean {
       return this.theme === 'light'
     },
     totalWidth(): number {
-      return this.hueHeight + (this.hueWidth + 8) * 2
+      return this.hueHeight + (this.hueWidth + 8) * (!this.showAlpha ? 1 : 2)
     },
     previewWidth(): number {
       return this.totalWidth - (this.suckerHide ? 0 : this.previewHeight)

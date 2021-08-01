@@ -100,6 +100,7 @@ export default defineComponent({
   position: relative;
   margin-left: 8px;
   cursor: pointer;
+  margin-left: auto;
   .slide {
     position: absolute;
     left: 0;
