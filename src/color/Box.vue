@@ -3,7 +3,7 @@
     <span class="name">
       {{ name }}
     </span>
-    <input v-model="modelColor" class="value" />
+    <input :disabled="disableInputField" v-model="modelColor" class="value" />
   </div>
 </template>
 
@@ -19,6 +19,10 @@ export default defineComponent({
     color: {
       type: String,
       default: '',
+    },
+    disableInputField: {
+      type: Boolean,
+      default: false,
     },
   },
   emits: ['inputColor'],
