@@ -124,11 +124,14 @@ export default defineComponent({
       type: String,
       default: 'vue-colorpicker-history',
     },
+    width: {
+      type: Number,
+      default: 200,
+    },
   },
   data() {
     return {
       hueWidth: 15,
-      hueHeight: 152,
       previewHeight: 30,
       modelRgba: '',
       modelHex: '',
@@ -144,6 +147,9 @@ export default defineComponent({
   computed: {
     isLightTheme(): boolean {
       return this.theme === 'light'
+    },
+    hueHeight(): number {
+      return this.width * 0.8
     },
     totalWidth(): number {
       return this.hueHeight + (this.hueWidth + 8) * 2
