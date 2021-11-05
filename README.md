@@ -75,6 +75,7 @@ $ yarn add vue-color-kit
 | sucker-canvas      | HTMLCanvasElement | `null`                                                                                                                                                                                   | like `document.createElement('canvas')` |
 | sucker-area        | Array             | `[]`                                                                                                                                                                                     | like `[x1, y1, x2, y2]`                 |
 | width              | Number            | 198                                                                                                                                                                                      | any desired width                       |
+| show-alpha         | Boolean           | `true`                                                                                                                                                                                   | `true` or `false`                       |
 
 > `color` is one-way data flow, so you can't use `v-model`. why? because you'll listen `changeColor` event do more things, so i think it's not necessary here.
 
