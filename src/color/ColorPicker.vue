@@ -126,7 +126,7 @@ export default defineComponent({
     },
     width: {
       type: Number,
-      default: 200,
+      default: 198,
     },
   },
   data() {
@@ -149,7 +149,9 @@ export default defineComponent({
       return this.theme === 'light'
     },
     hueHeight(): number {
-      return this.width * 0.8
+      //making hueHeight such that overall width equal to passed width
+      //20 is the sum of left and right padding of Color Picker
+      return this.width - ((this.hueWidth + 8) * 2 + 20)
     },
     totalWidth(): number {
       return this.hueHeight + (this.hueWidth + 8) * 2
