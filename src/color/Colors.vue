@@ -93,7 +93,7 @@ export default defineComponent({
   },
 })
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .colors {
   padding: 0;
   margin: 0.5rem 0 0 0;

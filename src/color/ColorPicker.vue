@@ -316,7 +316,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .hu-color-picker {
   padding: 10px;
   background: #1d2024;
