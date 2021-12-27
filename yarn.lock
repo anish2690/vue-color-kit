@@ -1221,9 +1221,9 @@
   integrity sha512-gYsNoGkWejBxNO6SNRjOh/xKeZ0H0V+TFzaPzODfBjkAIb0aQgBuixC1brandC/CDJy1wYPwSoYrXpvul7m6yw==
 
 "@vue/test-utils@^2.0.0-beta.6":
-  version "2.0.0-beta.14"
-  resolved "https://registry.yarnpkg.com/@vue/test-utils/-/test-utils-2.0.0-beta.14.tgz#9300d48789b334b52c5514efdc4648f704a7e94b"
-  integrity sha512-lYPoUcp6zd+CBOvrhJYuvWBpyNrSJqiVwRsT73aTpx0c5p9nAz1coKU9ou+T5xdvHf++Ngqaif/2VjD0phv0yQ==
+  version "2.0.0-rc.18"
+  resolved "https://registry.yarnpkg.com/@vue/test-utils/-/test-utils-2.0.0-rc.18.tgz#ff22b252424fe72e5462cbb3a8e7405cef11ffb6"
+  integrity sha512-aifolXjVdsogjaLmDoZ0FU8vN+R67aWmg9OuVeED4w5Ij5GFQLrlhM19uhWe/r5xXUL4fXMk3pX5wW6FJP1NcQ==
 
 "@vue/web-component-wrapper@^1.2.0":
   version "1.2.0"
