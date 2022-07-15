@@ -107,7 +107,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .color-alpha {
   position: relative;
   margin-left: 8px;

@@ -95,7 +95,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .hue {
   position: relative;
   margin-left: 8px;

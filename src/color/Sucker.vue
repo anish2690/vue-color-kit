@@ -183,7 +183,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .sucker {
   width: 30px;
   fill: #9099a4;

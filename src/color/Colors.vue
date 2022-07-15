@@ -93,10 +93,13 @@ export default defineComponent({
   },
 })
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .colors {
   padding: 0;
-  margin: 0;
+  margin: 0.5rem 0 0 0;
+  display: flex;
+  gap: 0.44rem;
+  flex-wrap: wrap;
   &.history {
     margin-top: 10px;
     border-top: 1px solid #2e333a;
@@ -105,7 +108,6 @@ export default defineComponent({
     position: relative;
     width: 16px;
     height: 16px;
-    margin: 10px 0 0 10px;
     border-radius: 3px;
     box-sizing: border-box;
     vertical-align: top;

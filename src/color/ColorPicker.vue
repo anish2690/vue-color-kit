@@ -20,6 +20,7 @@
         @selectHue="selectHue"
       />
       <Alpha
+        v-if="showAlpha"
         ref="alpha"
         :color="rgbString"
         :rgba="rgba"
@@ -42,8 +43,19 @@
         @selectSucker="selectSucker"
       />
     </div>
-    <Box name="HEX" :color="modelHex" @inputColor="inputHex" />
-    <Box name="RGBA" :color="modelRgba" @inputColor="inputRgba" />
+    <Box
+      name="HEX"
+      :disableInputField="disableInputField"
+      :color="modelHex"
+      @inputColor="inputHex"
+    />
+    <Box
+      v-if="showAlpha"
+      name="RGBA"
+      :disableInputField="disableInputField"
+      :color="modelRgba"
+      @inputColor="inputRgba"
+    />
     <Colors
       :color="rgbaString"
       :colors-default="colorsDefault"
@@ -124,14 +136,26 @@ export default defineComponent({
       type: String,
       default: 'vue-colorpicker-history',
     },
+    width: {
+      type: Number,
+      default: 198,
+    },
+    showAlpha: {
+      type: Boolean,
+      default: true,
+    },
+    disableInputField: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
       hueWidth: 15,
-      hueHeight: 152,
       previewHeight: 30,
       modelRgba: '',
       modelHex: '',
+      hueCount: this.showAlpha ? 2 : 1,
       r: 0,
       g: 0,
       b: 0,
@@ -145,8 +169,13 @@ export default defineComponent({
     isLightTheme(): boolean {
       return this.theme === 'light'
     },
+    hueHeight(): number {
+      //making hueHeight such that overall width equal to passed width
+      //20 is the sum of left and right padding of Color Picker
+      return this.width - ((this.hueWidth + 8) * this.hueCount + 20)
+    },
     totalWidth(): number {
-      return this.hueHeight + (this.hueWidth + 8) * 2
+      return this.hueHeight + (this.hueWidth + 8) * this.hueCount
     },
     previewWidth(): number {
       return this.totalWidth - (this.suckerHide ? 0 : this.previewHeight)
@@ -287,7 +316,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .hu-color-picker {
   padding: 10px;
   background: #1d2024;
