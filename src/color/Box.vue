@@ -3,7 +3,12 @@
     <span class="name">
       {{ name }}
     </span>
-    <input v-model="modelColor" class="value" />
+    <input
+      v-model="modelColor"
+      class="value"
+      @focus="handleFocus(true)"
+      @blur="handleFocus(false)"
+    />
   </div>
 </template>
 
@@ -21,7 +26,7 @@ export default defineComponent({
       default: '',
     },
   },
-  emits: ['inputColor'],
+  emits: ['inputColor', 'updateFocus'],
   setup(props, { emit }) {
     const modelColor = computed({
       get() {
@@ -31,8 +36,12 @@ export default defineComponent({
         emit('inputColor', val)
       },
     })
+    const handleFocus = (val: boolean) => {
+      emit('updateFocus', val)
+    }
     return {
       modelColor,
+      handleFocus,
     }
   },
 })
