@@ -46,13 +46,15 @@
       name="HEX"
       :color="modelHex"
       @inputColor="inputHex"
-      @updateFocus="updateFocusEmit"
+      @inputFocus="handleFocus"
+      @inputBlur="handleBlur"
     />
     <Box
       name="RGBA"
       :color="modelRgba"
       @inputColor="inputRgba"
-      @updateFocus="updateFocusEmit"
+      @inputFocus="handleFocus"
+      @inputBlur="handleBlur"
     />
     <Colors
       :color="rgbaString"
@@ -87,7 +89,7 @@ export default defineComponent({
     Box,
     Colors,
   },
-  emits: ['changeColor', 'openSucker', 'inputFocus'],
+  emits: ['changeColor', 'openSucker', 'inputFocus', 'inputBlur'],
   props: {
     color: {
       type: String,
@@ -207,8 +209,11 @@ export default defineComponent({
       Object.assign(this, { r, g, b, h, s, v })
       this.setText()
     },
-    updateFocusEmit(val: boolean) {
-      this.$emit('inputFocus', val)
+    handleFocus(event: Event) {
+      this.$emit('inputFocus', event)
+    },
+    handleBlur(event: Event) {
+      this.$emit('inputBlur', event)
     },
     selectHue(color: any) {
       const { r, g, b, h, s, v } = setColorValue(color)
