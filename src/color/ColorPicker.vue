@@ -209,10 +209,10 @@ export default defineComponent({
       Object.assign(this, { r, g, b, h, s, v })
       this.setText()
     },
-    handleFocus(event: Event) {
+    handleFocus(event: FocusEvent) {
       this.$emit('inputFocus', event)
     },
-    handleBlur(event: Event) {
+    handleBlur(event: FocusEvent) {
       this.$emit('inputBlur', event)
     },
     selectHue(color: any) {

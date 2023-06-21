@@ -60,11 +60,11 @@ $ yarn add vue-color-kit
           // this.suckerCanvas && this.suckerCanvas.remove
         }
       },
-      inputFocus(event: Event) {
+      inputFocus(event: FocusEvent) {
         // this will get triggered on input field (hex and rgba) get focus
         // prop value will be FocusEvent object associated with the input
       },
-      inputBlur(event: Event) {
+      inputBlur(event: FocusEvent) {
         // this  will get triggeredon input field (hex and rgba) get out of focus (blur event)
         // prop value will be FocusEvent object associated with the input
       },
