@@ -42,8 +42,20 @@
         @selectSucker="selectSucker"
       />
     </div>
-    <Box name="HEX" :color="modelHex" @inputColor="inputHex" />
-    <Box name="RGBA" :color="modelRgba" @inputColor="inputRgba" />
+    <Box
+      name="HEX"
+      :color="modelHex"
+      @inputColor="inputHex"
+      @inputFocus="handleFocus"
+      @inputBlur="handleBlur"
+    />
+    <Box
+      name="RGBA"
+      :color="modelRgba"
+      @inputColor="inputRgba"
+      @inputFocus="handleFocus"
+      @inputBlur="handleBlur"
+    />
     <Colors
       :color="rgbaString"
       :colors-default="colorsDefault"
@@ -77,7 +89,7 @@ export default defineComponent({
     Box,
     Colors,
   },
-  emits: ['changeColor', 'openSucker'],
+  emits: ['changeColor', 'openSucker', 'inputFocus', 'inputBlur'],
   props: {
     color: {
       type: String,
@@ -196,6 +208,12 @@ export default defineComponent({
       const { r, g, b, h, s, v } = setColorValue(color)
       Object.assign(this, { r, g, b, h, s, v })
       this.setText()
+    },
+    handleFocus(event: FocusEvent) {
+      this.$emit('inputFocus', event)
+    },
+    handleBlur(event: FocusEvent) {
+      this.$emit('inputBlur', event)
     },
     selectHue(color: any) {
       const { r, g, b, h, s, v } = setColorValue(color)

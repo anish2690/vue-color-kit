@@ -24,6 +24,8 @@ $ yarn add vue-color-kit
       :sucker-area="suckerArea"
       @changeColor="changeColor"
       @openSucker="openSucker"
+      @inputFocus="inputFocus"
+      @inputBlur="inputBlur"
     />
   </div>
 </template>
@@ -58,6 +60,14 @@ $ yarn add vue-color-kit
           // this.suckerCanvas && this.suckerCanvas.remove
         }
       },
+      inputFocus(event: FocusEvent) {
+        // this will get triggered on input field (hex and rgba) get focus
+        // prop value will be FocusEvent object associated with the input
+      },
+      inputBlur(event: FocusEvent) {
+        // this  will get triggeredon input field (hex and rgba) get out of focus (blur event)
+        // prop value will be FocusEvent object associated with the input
+      },
     },
   }
 </script>
@@ -83,5 +93,7 @@ $ yarn add vue-color-kit
 | ----------- | -------- | ------ | ------------------------------- |
 | changeColor | Function | color  | `{ rgba: {}, hsv: {}, hex: ''}` |
 | openSucker  | Function | isOpen | `true` or `false`               |
+| inputFocus  | Function | Event  | `FocusEvent` Object             |
+| inputBlur   | Function | Event  | `FocusEvent` Object             |
 
 > if you want use sucker, then `openSucker`, `sucker-hide`, `sucker-canvas`, `sucker-area` is necessary. when you click sucker button, you can click it again or press key of `esc` to exit.
